@@ -1,0 +1,26 @@
+<html>                                                                                                                  
+<head>
+  <title>gevent websocket test</title>
+</head>
+<body>
+  <h1>test</h1>
+  <div>
+    <input name="send_input" id="send_input" />
+    <input type="button" value="push" onclick="send_data()" />
+  </div>
+  <div>
+    <textarea id="view"></textarea>
+  </div>
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript">
+var ws = new WebSocket("ws://169.252.100.10:8000/echo");
+ws.onmessage = function(e) {
+  $("#view").html($("#view").val() + e.data + "\n");
+};
+function send_data() {
+  ws.send($("#send_input").val());
+};
+</script>
+</body>
+</html>
