@@ -16,10 +16,11 @@ def echo():
         while True:
             src = ws.receive()
             if src is None:
+                print "none"
                 break
             ws.send(src)
     return
 
 if __name__ == '__main__':
-    server = pywsgi.WSGIServer(('169.252.100.10', 5000), app, handler_class=WebSocketHandler)
+    server = pywsgi.WSGIServer(('0.0.0.0', 5000), app, handler_class=WebSocketHandler)
     server.serve_forever()

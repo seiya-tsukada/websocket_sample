@@ -4,7 +4,7 @@
 	<head>
 		<script>
 			function init() {
-				ws = new WebSocket('ws://169.252.100.10:8080/chat');
+				ws = new WebSocket('ws://169.252.100.10:8080/websocket');
 				ws.onmessage = function(e) {
 					document.getElementById('holder').innerHTML += '<p>' + e.data + '</p>\n';
 				};

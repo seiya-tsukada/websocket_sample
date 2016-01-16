@@ -14,7 +14,7 @@
   <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript">
-var ws = new WebSocket("ws://169.252.100.10:8000/echo");
+var ws = new WebSocket("ws://169.252.100.10:5000/echo");
 ws.onmessage = function(e) {
   $("#view").html($("#view").val() + e.data + "\n");
 };
