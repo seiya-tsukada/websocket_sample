@@ -9,7 +9,6 @@
         $(document).ready(function(){
             ws = new WebSocket("ws://169.252.100.10:8080/websocket");
             ws.onmessage = function(e) {
-                console.log("onmessage");
                 $("#view").append("<p>" + e.data + "</p>");
             }
             $("#send").on("click", function() {

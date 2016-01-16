@@ -1,26 +1,38 @@
-<html>                                                                                                                  
-<head>
-  <title>gevent websocket test</title>
-</head>
-<body>
-  <h1>test</h1>
-  <div>
-    <input name="send_input" id="send_input" />
-    <input type="button" value="push" onclick="send_data()" />
-  </div>
-  <div>
-    <textarea id="view"></textarea>
-  </div>
-  <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <script type="text/javascript">
-var ws = new WebSocket("ws://169.252.100.10:5000/echo");
-ws.onmessage = function(e) {
-  $("#view").html($("#view").val() + e.data + "\n");
-};
-function send_data() {
-  ws.send($("#send_input").val());
-};
-</script>
-</body>
+<!DOCTYPE html>
+
+<html>
+    <head>
+    <title>samle chat room</title>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            ws = new WebSocket("ws://169.252.100.10:5000/websocket");
+            ws.onmessage = function(e) {
+                $("#view").append("<p>" + e.data + "</p>");
+            }
+            $("#send").on("click", function() {
+                ws.send($("#message").val());
+                $("#message").val("");
+            });
+        });
+    </script>
+    <style>
+        #sender {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-top: 1px solid black;
+        }
+    </style>
+    </head>
+
+    <body>
+        <div id="view"></div>
+        <div id="sender">
+        <input type="text" id="message" size=80 value="sample text">
+        <button id="send">send</button>
+        </div>
+    </body>
 </html>

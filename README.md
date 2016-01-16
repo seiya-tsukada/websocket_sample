@@ -7,8 +7,6 @@ flask_websocket
 
 pip install --require requirements.txt
 
-後で整理する
-
 # create requirements 
 pip install gevent
 pip install gevent-websocket
