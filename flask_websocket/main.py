@@ -1,6 +1,5 @@
 #! /usr/bin/env python
 
-import os
 from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler
 from flask import Flask, request, render_template
@@ -15,7 +14,7 @@ def index():
     return render_template("index.html")
 
 @app.route("/websocket")
-def echo():
+def websocket():
 
     if request.environ.get("wsgi.websocket"):
         ws = request.environ["wsgi.websocket"]
