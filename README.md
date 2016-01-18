@@ -12,3 +12,6 @@ pip install gevent
 pip install gevent-websocket
 pip install flask
 pip freeze > requirements.txt
+
+# reference
+http://methane.github.io/gevent-tutorial-ja/
